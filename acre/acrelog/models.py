@@ -19,7 +19,7 @@ class event(models.Model):
     # event_date = models.DateTimeField(default=datetime.now, blank=True)
     event_operator = models.CharField(max_length=50)
     event_operation = models.CharField(choices=EVENT_TYPES, max_length=10)
-    event_location = models.CharField(max_length=10)
+    event_location = models.CharField(max_length=30)
 
     def __str__(self):
         return self.event_id
