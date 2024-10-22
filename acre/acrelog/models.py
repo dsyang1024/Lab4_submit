@@ -3,13 +3,11 @@ from datetime import datetime
 
 
 EVENT_TYPES = [
-    ('seed','Seeding'),
-    ('fertilize','Fertilizing'),
-    ('irrigate','Irrigating'),
-    ('harvest','Harvesting'),
-    ('till','Tilling'),
-    ('spray','Spraying'),
-    ('other','Other')
+    ('spray', 'Spread/Spray'),
+    ('tillage', 'Tillage'),
+    ('plant', 'Plant'),
+    ('harvest', 'Harvest'),
+    ('soil_sampling', 'Soil Sampled')
 ]
 
 
@@ -17,13 +15,27 @@ EVENT_TYPES = [
 # Create your models here.
 class event(models.Model):
     # event_date = models.DateTimeField(default=datetime.now, blank=True)
-    event_operator = models.CharField(max_length=50)
-    event_operation = models.CharField(choices=EVENT_TYPES, max_length=10)
-    event_location = models.CharField(max_length=30)
+    event_types = models.CharField(choices=EVENT_TYPES, max_length=50)
 
     def __str__(self):
         return self.event_id
-    
+
+
+
+class operator(models.Model):
+    operator_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.operator_name
+
+
+
+class location(models.Model):
+    location_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.location_name
+
 
 
 class seed(models.Model):
@@ -41,21 +53,23 @@ class fertilizer(models.Model):
 
     def __str__(self):
         return self.fertilizer_type
-    
+
+
 
 class powerunit(models.Model):
     powerunit_type = models.CharField(max_length=50)
 
     def __str__(self):
         return self.powerunit_type
-    
+
+
 
 class log(models.Model):
     log_id = models.ForeignKey(event, on_delete=models.CASCADE)
+    log_date = models.DateTimeField(default=datetime.now, blank=True)
     seed = models.ForeignKey(seed, on_delete=models.CASCADE)
     fertilizer = models.ForeignKey(fertilizer, on_delete=models.CASCADE)
     powerunit = models.ForeignKey(powerunit, on_delete=models.CASCADE)
-    log_date = models.DateTimeField(default=datetime.now, blank=True)
     note = models.TextField()
 
     def __str__(self):
