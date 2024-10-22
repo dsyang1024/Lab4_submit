@@ -3,35 +3,35 @@
         "model": "acrelog.operator",
         "pk": 1,
         "fields": {
-            "firstname": "Evan"
+            "operator_name": "Evan"
         }
     },
     {
         "model": "acrelog.operator",
         "pk": 2,
         "fields": {
-            "firstname": "Bryan"
+            "operator_name": "Bryan"
         }
     },
     {
         "model": "acrelog.operator",
         "pk": 3,
         "fields": {
-            "firstname": "Aaron"
+            "operator_name": "Aaron"
         }
     },
     {
         "model": "acrelog.operator",
         "pk": 4,
         "fields": {
-            "firstname": "Rachel"
+            "operator_name": "Rachel"
         }
     },
     {
         "model": "acrelog.operator",
         "pk": 5,
         "fields": {
-            "firstname": "Ceres"
+            "operator_name": "Ceres"
         }
     }
 ]

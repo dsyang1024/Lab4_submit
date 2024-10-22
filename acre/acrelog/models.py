@@ -14,12 +14,19 @@ EVENT_TYPES = [
 
 # Create your models here.
 class event(models.Model):
-    # event_date = models.DateTimeField(default=datetime.now, blank=True)
-    event_types = models.CharField(choices=EVENT_TYPES, max_length=50)
+    # assign a unique id to each event
+    date = models.DateTimeField(default=datetime.now, blank=True)
+    event = models.CharField(choices=EVENT_TYPES, max_length=50)
+    note = models.TextField()
+    def __str__(self):
+        return self.date.strftime('%Y-%m-%d') + ' ' + self.event
+
+
+class operation(models.Model):
+    operation = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.event_id
-
+        return self.operation
 
 
 class operator(models.Model):
@@ -35,6 +42,14 @@ class location(models.Model):
 
     def __str__(self):
         return self.location_name
+
+
+
+class spray(models.Model):
+        powerunit_type = models.CharField(max_length=50)
+
+        def __str__(self):
+            return self.powerunit_type
 
 
 
@@ -56,20 +71,11 @@ class fertilizer(models.Model):
 
 
 
-class powerunit(models.Model):
-    powerunit_type = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.powerunit_type
-
-
-
 class log(models.Model):
-    log_id = models.ForeignKey(event, on_delete=models.CASCADE)
+    operation = models.ForeignKey(operation, on_delete=models.CASCADE)
     log_date = models.DateTimeField(default=datetime.now, blank=True)
     seed = models.ForeignKey(seed, on_delete=models.CASCADE)
     fertilizer = models.ForeignKey(fertilizer, on_delete=models.CASCADE)
-    powerunit = models.ForeignKey(powerunit, on_delete=models.CASCADE)
     note = models.TextField()
 
     def __str__(self):
