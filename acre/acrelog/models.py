@@ -72,7 +72,9 @@ class fertilizer(models.Model):
 
 
 class log(models.Model):
-    operation = models.ForeignKey(operation, on_delete=models.CASCADE)
+    location = models.ForeignKey(location, on_delete=models.CASCADE)
+    event = models.ForeignKey(event, on_delete=models.CASCADE)
+    operator = models.ForeignKey(operator, on_delete=models.CASCADE)
     log_date = models.DateTimeField(default=datetime.now, blank=True)
     seed = models.ForeignKey(seed, on_delete=models.CASCADE)
     fertilizer = models.ForeignKey(fertilizer, on_delete=models.CASCADE)
