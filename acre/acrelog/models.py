@@ -75,10 +75,8 @@ class log(models.Model):
     location = models.ForeignKey(location, on_delete=models.CASCADE)
     event = models.ForeignKey(event, on_delete=models.CASCADE)
     operator = models.ForeignKey(operator, on_delete=models.CASCADE)
-    log_date = models.DateTimeField(default=datetime.now, blank=True)
-    seed = models.ForeignKey(seed, on_delete=models.CASCADE)
-    fertilizer = models.ForeignKey(fertilizer, on_delete=models.CASCADE)
+    date = models.DateTimeField(default=datetime.now, blank=True)
     note = models.TextField()
 
     def __str__(self):
-        return self.log_id
+        return self.id
