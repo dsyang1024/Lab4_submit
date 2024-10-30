@@ -10,5 +10,9 @@ The primary users of the web application will be the farm-workers or farm manage
 ## 1. Insert the image of your data model
 ![Data model image](image.png)
 ## 2. Describe what each of the classes represent and how they related to each other.
-
+| Database    | Description |
+| -------- | ------- |
+| January  | $250    |
+| February | $80     |
+| March    | $420    |
 ## 3. Describe why you chose to model the data in this manner.
