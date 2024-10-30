@@ -6,6 +6,6 @@
 
 # Data Model
 
-Insert the image of your data model
-## 1. Describe what each of the classes represent and how they related to each other.
-## 2. Describe why you chose to model the data in this manner.
+## 1. Insert the image of your data model
+## 2. Describe what each of the classes represent and how they related to each other.
+## 3. Describe why you chose to model the data in this manner.
