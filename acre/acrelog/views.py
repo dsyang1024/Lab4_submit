@@ -17,6 +17,7 @@ def fields(request, location_id):
     logs = log.objects.filter(location=location_id)
     print (logs)
     field = location.objects.get(pk=location_id)
+    
     context = {'field':field, 'logs': logs}
 
     return render(request, 'fields.html', context)
