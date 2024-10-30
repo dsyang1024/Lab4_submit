@@ -14,11 +14,8 @@ def index(request):
 
 
 def fields(request, location_id):
-    print(location_id)
-    # logs = log.objects.filter(location=location_id)
-    logs = log.objects.all()
-    for x in logs:
-        print(x)
+    logs = log.objects.filter(location=location_id)
+    print (logs)
     field = location.objects.get(pk=location_id)
     context = {'field':field, 'logs': logs}
 

@@ -5,7 +5,25 @@
 </head>
 
 <body>
-    <h1>Operation list @ Field ID:: {{ field.location_name }}</h1>
-
+    <h1>Operation list @ Field Name:: {{ field.location_name }}</h1>
+    1 - Spread/Spray
+    <br>
+    2 - Tillage
+    <br>
+    3 - Planting
+    <br>
+    4 - Harvest
+    <br>
+    5 - Soil Sampling
+    <br>
+    {% if logs %}
+        <ul>
+            {% for log in logs %}
+                <li>{{ log.date.date }} | < {{ log.event.event }} > | {{log.note}}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No operations are available.</p>
+    {% endif %}
 </body>
 </html>
